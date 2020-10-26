@@ -14,7 +14,7 @@ export default function Post({ postData }) {
         <h1 className={utilStyles.headingXL}>{postData.title}</h1>
         {postData.id}
         <div className={utilStyles.lightText}>
-          <Date dateString={postData.date}></Date>
+          <p>{postData.date}</p>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
@@ -25,7 +25,7 @@ export default function Post({ postData }) {
 
 // getstaticpaths and getstaticprops should never be fetched - instead write server-side code within
 // this is because these functions are only ever called on the serverside and are not included in the JS bundle used in the browser
- 
+
 export async function getStaticPaths(){
   const paths = getAllPostIds()
   return{
